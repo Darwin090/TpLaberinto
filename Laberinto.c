@@ -4,10 +4,10 @@
 
 #define TAM 15  // Tamaño de la matriz del laberinto
 
-// Definir las direcciones de movimiento: arriba, abajo, izquierda, derecha
+// Definimos  las direcciones de movimiento: arriba, abajo, izquierda, derecha
 int movimientos[4][2] = {{-2, 0}, {2, 0}, {0, -2}, {0, 2}};
 
-// Funcion para inicializar la matriz del laberinto con muros
+// funcion para inicializar la matriz del laberinto con muros
 void inicializar_matriz(char laberinto[TAM][TAM]) {
     for (int i = 0; i < TAM; i++) {
         for (int j = 0; j < TAM; j++) {
@@ -16,12 +16,12 @@ void inicializar_matriz(char laberinto[TAM][TAM]) {
     }
 }
 
-// Verifica si una celda esta dentro de los limites del laberinto
+// vErifica si una celda esta dentro de los limites del laberinto
 int es_valido(int x, int y) {
     return x >= 0 && x < TAM && y >= 0 && y < TAM;
 }
 
-// Función para barajar las direcciones de movimiento
+// funcion para barajar las direcciones de movimiento
 void barajar_direcciones(int mov[4][2]) {
     for (int i = 0; i < 4; i++) {
         int j = rand() % 4;
@@ -33,7 +33,7 @@ void barajar_direcciones(int mov[4][2]) {
     }
 }
 
-// Función recursiva para generar el laberinto
+// funcion recursiva para generar el laberinto
 void generar_laberinto(char laberinto[TAM][TAM], int x, int y) {
     laberinto[x][y] = ' ';  // Marca la celda actual como un camino
 
@@ -55,7 +55,7 @@ void generar_laberinto(char laberinto[TAM][TAM], int x, int y) {
     }
 }
 
-// Funcion para imprimir el laberinto en la consola
+// funcion para imprimir el laberinto en la consola
 void imprimir_laberinto(char laberinto[TAM][TAM]) {
     for (int i = 0; i < TAM; i++) {
         for (int j = 0; j < TAM; j++) {
@@ -70,7 +70,7 @@ int main() {
     char laberinto[TAM][TAM];
     inicializar_matriz(laberinto);
 
-    // Inicializar la semilla para los números aleatorios
+    // inicializar la semilla para los numeros aleatorios
     srand(time(NULL));
 
     // Generar el laberinto comenzando desde la celda (1, 1)
@@ -80,7 +80,7 @@ int main() {
     laberinto[1][0] = 'S';  // Punto de inicio
     laberinto[TAM-2][TAM-1] = 'E';  // Punto de salida
 
-    // Imprimir el laberinto
+    // imprimir el laberinto
     imprimir_laberinto(laberinto);
 
     return 0;
